@@ -1,0 +1,9 @@
+[package]
+name        = "target"
+version     = "0.0.0"
+description = "Get information on compilation target"
+authors     = ["Casey Rodarmor <casey@rodarmor.com>"]
+license     = "CC0-1.0"
+homepage    = "https://github.com/casey/target"
+
+[dependencies]
