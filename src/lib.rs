@@ -4,11 +4,13 @@ pub fn arch() -> &'static str {
   #[cfg(target_arch = "asmjs"    )] { "asmjs"     }
   #[cfg(target_arch = "hexagon"  )] { "hexagon"   }
   #[cfg(target_arch = "mips"     )] { "mips"      }
+  #[cfg(target_arch = "mips64"   )] { "mips64"    }
   #[cfg(target_arch = "msp430"   )] { "msp430"    }
   #[cfg(target_arch = "powerpc"  )] { "powerpc"   }
   #[cfg(target_arch = "powerpc64")] { "powerpc64" }
   #[cfg(target_arch = "s390x"    )] { "s390x"     }
   #[cfg(target_arch = "sparc"    )] { "sparc"     }
+  #[cfg(target_arch = "sparc64"  )] { "sparc64"   }
   #[cfg(target_arch = "wasm32"   )] { "wasm32"    }
   #[cfg(target_arch = "x86"      )] { "x86"       }
   #[cfg(target_arch = "x86_64"   )] { "x86_64"    }
@@ -66,27 +68,27 @@ pub fn vendor() -> &'static str {
 }
 
 pub fn has_atomic_8() -> bool {
-  #[cfg(target_has_atomic     = "8")] { true  } 
+  #[cfg(target_has_atomic     = "8")] { true  }
   #[cfg(not(target_has_atomic = "8")] { false }
 }
 
 pub fn has_atomic_16() -> bool {
-  #[cfg(target_has_atomic     = "16")] { true  } 
+  #[cfg(target_has_atomic     = "16")] { true  }
   #[cfg(not(target_has_atomic = "16")] { false }
 }
 
 pub fn has_atomic_32() -> bool {
-  #[cfg(target_has_atomic     = "32")] { true  } 
+  #[cfg(target_has_atomic     = "32")] { true  }
   #[cfg(not(target_has_atomic = "32")] { false }
 }
 
 pub fn has_atomic_64() -> bool {
-  #[cfg(target_has_atomic     = "64")] { true  } 
+  #[cfg(target_has_atomic     = "64")] { true  }
   #[cfg(not(target_has_atomic = "64")] { false }
 }
 
 pub fn has_atomic_ptr() -> bool {
-  #[cfg(target_has_atomic     = "ptr")] { true  } 
+  #[cfg(target_has_atomic     = "ptr")] { true  }
   #[cfg(not(target_has_atomic = "ptr")] { false }
 }
 */
