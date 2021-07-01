@@ -6,4 +6,8 @@ authors     = ["Casey Rodarmor <casey@rodarmor.com>"]
 license     = "CC0-1.0"
 homepage    = "https://github.com/casey/target"
 
+[[bin]]
+name = "dump_target"
+path = "src/bin.rs"
+
 [dependencies]
