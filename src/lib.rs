@@ -317,22 +317,62 @@ pub fn vendor() -> &'static str {
 
 pub fn features() -> &'static [&'static str] {
     &[
+        #[cfg(target_feature = "adx")]
+        "adx",
         #[cfg(target_feature = "aes")]
         "aes",
+        #[cfg(target_feature = "altivec")]
+        "altivec",
+        #[cfg(target_feature = "atomics")]
+        "atomics",
         #[cfg(target_feature = "avx")]
         "avx",
         #[cfg(target_feature = "avx2")]
         "avx2",
+        #[cfg(target_feature = "avx512bf16")]
+        "avx512bf16",
+        #[cfg(target_feature = "avx512bitalg")]
+        "avx512bitalg",
+        #[cfg(target_feature = "avx512bw")]
+        "avx512bw",
+        #[cfg(target_feature = "avx512cd")]
+        "avx512cd",
+        #[cfg(target_feature = "avx512f")]
+        "avx512f",
+        #[cfg(target_feature = "avx512gfni")]
+        "avx512gfni",
+        #[cfg(target_feature = "avx512ifma")]
+        "avx512ifma",
+        #[cfg(target_feature = "avx512vaes")]
+        "avx512vaes",
+        #[cfg(target_feature = "avx512vbmi")]
+        "avx512vbmi",
+        #[cfg(target_feature = "avx512vl")]
+        "avx512vl",
+        #[cfg(target_feature = "avx512vnni")]
+        "avx512vnni",
+        #[cfg(target_feature = "avx512vpopcntdq")]
+        "avx512vpopcntdq",
         #[cfg(target_feature = "bmi1")]
         "bmi1",
         #[cfg(target_feature = "bmi2")]
         "bmi2",
+        #[cfg(target_feature = "cmpxchg16b")]
+        "cmpxchg16b",
+        #[cfg(target_feature = "crc")]
+        "crc",
         #[cfg(target_feature = "fma")]
         "fma",
         #[cfg(target_feature = "fxsr")]
         "fxsr",
+        #[cfg(target_feature = "f16c")]
+        "f16c",
         #[cfg(target_feature = "lzcnt")]
         "lzcnt",
+        #[cfg(target_feature = "msa")]
+        "msa",
+        #[cfg(target_feature = "neon")]
+        "neon",
         #[cfg(target_feature = "pclmulqdq")]
         "pclmulqdq",
         #[cfg(target_feature = "popcnt")]
@@ -341,20 +381,30 @@ pub fn features() -> &'static [&'static str] {
         "rdrand",
         #[cfg(target_feature = "rdseed")]
         "rdseed",
+        #[cfg(target_feature = "rtm")]
+        "rtm",
         #[cfg(target_feature = "sha")]
         "sha",
+        #[cfg(target_feature = "simd128")]
+        "simd128",
         #[cfg(target_feature = "sse")]
         "sse",
         #[cfg(target_feature = "sse2")]
         "sse2",
         #[cfg(target_feature = "sse3")]
         "sse3",
+        #[cfg(target_feature = "sse4a")]
+        "sse4a",
         #[cfg(target_feature = "sse4.1")]
         "sse4.1",
         #[cfg(target_feature = "sse4.2")]
         "sse4.2",
         #[cfg(target_feature = "ssse3")]
         "ssse3",
+        #[cfg(target_feature = "tbm")]
+        "tbm",
+        #[cfg(target_feature = "tme")]
+        "tme",
         #[cfg(target_feature = "xsave")]
         "xsave",
         #[cfg(target_feature = "xsavec")]
@@ -363,6 +413,12 @@ pub fn features() -> &'static [&'static str] {
         "xsaveopt",
         #[cfg(target_feature = "xsaves")]
         "xsaves",
+        #[cfg(target_feature = "vsx")]
+        "vsx",
+        #[cfg(target_feature = "v7")]
+        "v7",
+        #[cfg(target_feature = "v8")]
+        "v8",
     ]
 }
 
