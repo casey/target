@@ -1,0 +1,62 @@
+name: Build
+
+on:
+  push:
+    branches:
+      - master
+    tags:
+      - "*"
+  pull_request:
+    branches:
+      - master
+
+defaults:
+  run:
+    shell: bash
+
+env:
+  CACHE_KEY: 1
+
+jobs:
+  all:
+    name: All
+
+    runs-on: ubuntu-latest
+
+    env:
+      RUSTFLAGS: "--deny warnings"
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: actions/cache@v2
+        with:
+          path: |
+            ~/.cargo/bin/
+            ~/.cargo/registry/index/
+            ~/.cargo/registry/cache/
+            ~/.cargo/git/db/
+            target/
+          key: cargo-${{ env.CACHE_KEY }}-${{ hashFiles('**/Cargo.lock') }}
+
+      - name: Install clippy and rustfmt
+        run: rustup component add clippy rustfmt
+
+      - name: Info
+        run: |
+          rustup --version
+          cargo --version
+          cargo clippy --version
+          cargo fmt --version
+
+      - name: Check
+        run: cargo check
+
+      - name: Test
+        run: cargo test
+
+      - name: Format
+        run: cargo fmt -- --check
+
+      - name: Lint
+        run: cargo clippy
