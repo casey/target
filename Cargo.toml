@@ -6,4 +6,5 @@ authors     = ["Casey Rodarmor <casey@rodarmor.com>"]
 license     = "CC0-1.0"
 homepage    = "https://github.com/casey/target"
 
-[dependencies]
+[dev-dependencies]
+executable-path = "1.0.0"
