@@ -11,9 +11,17 @@ pub fn arch() -> &'static str {
     {
         "asmjs"
     }
+    #[cfg(target_arch = "avr")]
+    {
+        "avr"
+    }
     #[cfg(target_arch = "hexagon")]
     {
         "hexagon"
+    }
+    #[cfg(target_arch = "le32")]
+    {
+        "le32"
     }
     #[cfg(target_arch = "mips")]
     {
@@ -27,6 +35,14 @@ pub fn arch() -> &'static str {
     {
         "msp430"
     }
+    #[cfg(target_arch = "nvptx")]
+    {
+        "nvptx"
+    }
+    #[cfg(target_arch = "nvptx64")]
+    {
+        "nvptx64"
+    }
     #[cfg(target_arch = "powerpc")]
     {
         "powerpc"
@@ -34,6 +50,14 @@ pub fn arch() -> &'static str {
     #[cfg(target_arch = "powerpc64")]
     {
         "powerpc64"
+    }
+    #[cfg(target_arch = "riscv32")]
+    {
+        "riscv32"
+    }
+    #[cfg(target_arch = "riscv64")]
+    {
+        "riscv64"
     }
     #[cfg(target_arch = "s390x")]
     {
@@ -46,6 +70,14 @@ pub fn arch() -> &'static str {
     #[cfg(target_arch = "sparc64")]
     {
         "sparc64"
+    }
+    #[cfg(target_arch = "spriv")]
+    {
+        "spriv"
+    }
+    #[cfg(target_arch = "thumb")]
+    {
+        "thumb"
     }
     #[cfg(target_arch = "wasm32")]
     {
@@ -74,6 +106,14 @@ pub fn os() -> &'static str {
     {
         "bitrig"
     }
+    #[cfg(target_os = "cloudabi")]
+    {
+        "cloudabi"
+    }
+    #[cfg(target_os = "cuda")]
+    {
+        "cuda"
+    }
     #[cfg(target_os = "dragonfly")]
     {
         "dragonfly"
@@ -86,13 +126,29 @@ pub fn os() -> &'static str {
     {
         "freebsd"
     }
+    #[cfg(target_os = "fuchsia")]
+    {
+        "fuchsia"
+    }
     #[cfg(target_os = "haiku")]
     {
         "haiku"
     }
+    #[cfg(target_os = "hermit")]
+    {
+        "hermit"
+    }
+    #[cfg(target_os = "illumos")]
+    {
+        "illumos"
+    }
     #[cfg(target_os = "ios")]
     {
         "ios"
+    }
+    #[cfg(target_os = "l4re")]
+    {
+        "l4re"
     }
     #[cfg(target_os = "linux")]
     {
@@ -106,13 +162,45 @@ pub fn os() -> &'static str {
     {
         "netbsd"
     }
+    #[cfg(target_os = "none")]
+    {
+        "none"
+    }
     #[cfg(target_os = "openbsd")]
     {
         "openbsd"
     }
+    #[cfg(target_os = "psp")]
+    {
+        "psp"
+    }
+    #[cfg(target_os = "redox")]
+    {
+        "redox"
+    }
+    #[cfg(target_os = "sgx")]
+    {
+        "sgx"
+    }
     #[cfg(target_os = "solaris")]
     {
         "solaris"
+    }
+    #[cfg(target_os = "tvos")]
+    {
+        "tvos"
+    }
+    #[cfg(target_os = "vxworks")]
+    {
+        "vxworks"
+    }
+    #[cfg(target_os = "watchos")]
+    {
+        "watchos"
+    }
+    #[cfg(target_os = "wasi")]
+    {
+        "wasi"
     }
     #[cfg(target_os = "windows")]
     {
@@ -125,6 +213,10 @@ pub fn os_family() -> &'static str {
     {
         "unix"
     }
+    #[cfg(wasm)]
+    {
+        "wasm"
+    }
     #[cfg(windows)]
     {
         "windows"
@@ -136,6 +228,10 @@ pub fn env() -> &'static str {
     {
         "gnu"
     }
+    #[cfg(target_env = "libnx")]
+    {
+        "libnx"
+    }
     #[cfg(target_env = "msvc")]
     {
         "msvc"
@@ -143,6 +239,18 @@ pub fn env() -> &'static str {
     #[cfg(target_env = "musl")]
     {
         "musl"
+    }
+    #[cfg(target_env = "newlib")]
+    {
+        "newlib"
+    }
+    #[cfg(target_env = "uclibc")]
+    {
+        "uclibc"
+    }
+    #[cfg(target_env = "sgx")]
+    {
+        "sgx"
     }
     #[cfg(target_env = "")]
     {
@@ -162,6 +270,14 @@ pub fn endian() -> &'static str {
 }
 
 pub fn pointer_width() -> &'static str {
+    #[cfg(target_pointer_width = "8")]
+    {
+        "8"
+    }
+    #[cfg(target_pointer_width = "16")]
+    {
+        "16"
+    }
     #[cfg(target_pointer_width = "32")]
     {
         "32"
@@ -170,6 +286,140 @@ pub fn pointer_width() -> &'static str {
     {
         "64"
     }
+}
+
+pub fn vendor() -> &'static str {
+    #[cfg(target_vendor = "apple")]
+    {
+        "apple"
+    }
+    #[cfg(target_vendor = "pc")]
+    {
+        "pc"
+    }
+    #[cfg(target_vendor = "sun")]
+    {
+        "sun"
+    }
+    #[cfg(target_vendor = "fortanix")]
+    {
+        "fortanix"
+    }
+    #[cfg(target_vendor = "unknown")]
+    {
+        "unknown"
+    }
+    #[cfg(target_vendor = "uwp")]
+    {
+        "uwp"
+    }
+}
+
+pub fn features() -> &'static [&'static str] {
+    &[
+        #[cfg(target_feature = "adx")]
+        "adx",
+        #[cfg(target_feature = "aes")]
+        "aes",
+        #[cfg(target_feature = "altivec")]
+        "altivec",
+        #[cfg(target_feature = "atomics")]
+        "atomics",
+        #[cfg(target_feature = "avx")]
+        "avx",
+        #[cfg(target_feature = "avx2")]
+        "avx2",
+        #[cfg(target_feature = "avx512bf16")]
+        "avx512bf16",
+        #[cfg(target_feature = "avx512bitalg")]
+        "avx512bitalg",
+        #[cfg(target_feature = "avx512bw")]
+        "avx512bw",
+        #[cfg(target_feature = "avx512cd")]
+        "avx512cd",
+        #[cfg(target_feature = "avx512f")]
+        "avx512f",
+        #[cfg(target_feature = "avx512gfni")]
+        "avx512gfni",
+        #[cfg(target_feature = "avx512ifma")]
+        "avx512ifma",
+        #[cfg(target_feature = "avx512vaes")]
+        "avx512vaes",
+        #[cfg(target_feature = "avx512vbmi")]
+        "avx512vbmi",
+        #[cfg(target_feature = "avx512vl")]
+        "avx512vl",
+        #[cfg(target_feature = "avx512vnni")]
+        "avx512vnni",
+        #[cfg(target_feature = "avx512vpopcntdq")]
+        "avx512vpopcntdq",
+        #[cfg(target_feature = "bmi1")]
+        "bmi1",
+        #[cfg(target_feature = "bmi2")]
+        "bmi2",
+        #[cfg(target_feature = "cmpxchg16b")]
+        "cmpxchg16b",
+        #[cfg(target_feature = "crc")]
+        "crc",
+        #[cfg(target_feature = "fma")]
+        "fma",
+        #[cfg(target_feature = "fxsr")]
+        "fxsr",
+        #[cfg(target_feature = "f16c")]
+        "f16c",
+        #[cfg(target_feature = "lzcnt")]
+        "lzcnt",
+        #[cfg(target_feature = "msa")]
+        "msa",
+        #[cfg(target_feature = "neon")]
+        "neon",
+        #[cfg(target_feature = "pclmulqdq")]
+        "pclmulqdq",
+        #[cfg(target_feature = "popcnt")]
+        "popcnt",
+        #[cfg(target_feature = "rdrand")]
+        "rdrand",
+        #[cfg(target_feature = "rdseed")]
+        "rdseed",
+        #[cfg(target_feature = "rtm")]
+        "rtm",
+        #[cfg(target_feature = "sha")]
+        "sha",
+        #[cfg(target_feature = "simd128")]
+        "simd128",
+        #[cfg(target_feature = "sse")]
+        "sse",
+        #[cfg(target_feature = "sse2")]
+        "sse2",
+        #[cfg(target_feature = "sse3")]
+        "sse3",
+        #[cfg(target_feature = "sse4a")]
+        "sse4a",
+        #[cfg(target_feature = "sse4.1")]
+        "sse4.1",
+        #[cfg(target_feature = "sse4.2")]
+        "sse4.2",
+        #[cfg(target_feature = "ssse3")]
+        "ssse3",
+        #[cfg(target_feature = "tbm")]
+        "tbm",
+        #[cfg(target_feature = "tme")]
+        "tme",
+        #[cfg(target_feature = "xsave")]
+        "xsave",
+        #[cfg(target_feature = "xsavec")]
+        "xsavec",
+        #[cfg(target_feature = "xsaveopt")]
+        "xsaveopt",
+        #[cfg(target_feature = "xsaves")]
+        "xsaves",
+        #[cfg(target_feature = "vsx")]
+        "vsx",
+        #[cfg(target_feature = "v7")]
+        "v7",
+        #[cfg(target_feature = "v8")]
+        "v8",
+    ]
 }
 
 pub fn test() -> bool {
@@ -184,12 +434,6 @@ pub fn test() -> bool {
 }
 
 /*
-pub fn vendor() -> &'static str {
-  #[cfg(target_vendor = "apple"  )] { "apple"   }
-  #[cfg(target_vendor = "pc"     )] { "pc"      }
-  #[cfg(target_vendor = "unknown")] { "unknown" }
-}
-
 pub fn has_atomic_8() -> bool {
   #[cfg(target_has_atomic     = "8")] { true  }
   #[cfg(not(target_has_atomic = "8")] { false }
