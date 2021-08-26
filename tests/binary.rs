@@ -24,12 +24,23 @@ vendor: pc
 feature: ["fxsr", "sse", "sse2"]
 "#;
 
+#[cfg(all(target_arch = "x86_64", target_os = "macos", target_env = ""))]
+static EXPECTED: &str = r#"arch: x86_64
+os: macos
+family: unix
+env: 
+endian: little
+pointer_width: 64
+vendor: apple
+feature: ["fxsr", "sse", "sse2", "sse3", "ssse3"]
+"#;
+
 #[test]
 fn binary_output() {
-    let output = Command::new(executable_path("target"))
-        .output()
-        .unwrap()
-        .stdout;
-    let output = std::str::from_utf8(&output).unwrap();
-    assert_eq!(output, EXPECTED);
+  let output = Command::new(executable_path("target"))
+    .output()
+    .unwrap()
+    .stdout;
+  let output = std::str::from_utf8(&output).unwrap();
+  pretty_assertions::assert_eq!(output, EXPECTED);
 }
