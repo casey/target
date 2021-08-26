@@ -205,13 +205,17 @@ pub fn test() -> bool {
 }
 
 pub fn vendor() -> &'static str {
-  value! {
-    target_vendor,
-    "apple",
-    "fortanix",
-    "pc",
-    "sun",
-    "unknown",
-    "uwp",
+  if cfg!(target_vendor = "apple") {
+    "apple"
+  } else if cfg!(target_vendor = "fortanix") {
+    "fortanix"
+  } else if cfg!(target_vendor = "pc") {
+    "pc"
+  } else if cfg!(target_vendor = "sun") {
+    "sun"
+  } else if cfg!(target_vendor = "uwp") {
+    "uwp"
+  } else {
+    "unknown"
   }
 }
