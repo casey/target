@@ -61,14 +61,14 @@ pub fn endian() -> &'static str {
 pub fn env() -> &'static str {
   value! {
     target_env,
+    "",
     "gnu",
     "libnx",
     "msvc",
     "musl",
     "newlib",
-    "uclibc",
     "sgx",
-    "",
+    "uclibc",
   }
 }
 
@@ -105,9 +105,9 @@ pub fn features() -> &'static [&'static str] {
     "bmi2",
     "cmpxchg16b",
     "crc",
+    "f16c",
     "fma",
     "fxsr",
-    "f16c",
     "lzcnt",
     "msa",
     "neon",
@@ -121,19 +121,19 @@ pub fn features() -> &'static [&'static str] {
     "sse",
     "sse2",
     "sse3",
-    "sse4a",
     "sse4.1",
     "sse4.2",
+    "sse4a",
     "ssse3",
     "tbm",
     "tme",
+    "v7",
+    "v8",
+    "vsx",
     "xsave",
     "xsavec",
     "xsaveopt",
     "xsaves",
-    "vsx",
-    "v7",
-    "v8",
   )
 }
 
@@ -184,8 +184,8 @@ pub fn os() -> &'static str {
     "solaris",
     "tvos",
     "vxworks",
-    "watchos",
     "wasi",
+    "watchos",
     "windows",
   }
 }
@@ -208,9 +208,9 @@ pub fn vendor() -> &'static str {
   value! {
     target_vendor,
     "apple",
+    "fortanix",
     "pc",
     "sun",
-    "fortanix",
     "unknown",
     "uwp",
   }
