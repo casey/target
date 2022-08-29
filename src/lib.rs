@@ -160,6 +160,7 @@ pub fn features() -> &'static [&'static str] {
 pub fn os() -> &'static str {
   value! {
     target_os,
+    "aix",
     "android",
     "bitrig",
     "cloudabi",
@@ -215,6 +216,8 @@ pub fn vendor() -> &'static str {
     "sun"
   } else if cfg!(target_vendor = "uwp") {
     "uwp"
+  } else if cfg!(target_vendor = "ibm") {
+    "ibm"
   } else {
     "unknown"
   }
