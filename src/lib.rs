@@ -137,26 +137,6 @@ pub fn features() -> &'static [&'static str] {
   )
 }
 
-// pub fn has_atomic_8() -> bool {
-//   cfg!(target_has_atomic = "8")
-// }
-
-// pub fn has_atomic_16() -> bool {
-//   cfg!(target_has_atomic = "16")
-// }
-
-// pub fn has_atomic_32() -> bool {
-//   cfg!(target_has_atomic = "32")
-// }
-
-// pub fn has_atomic_64() -> bool {
-//   cfg!(target_has_atomic = "64")
-// }
-
-// pub fn has_atomic_ptr() -> bool {
-//   cfg!(target_has_atomic = "ptr")
-// }
-
 pub fn os() -> &'static str {
   value! {
     target_os,
