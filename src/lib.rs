@@ -29,6 +29,7 @@ pub fn arch() -> &'static str {
     "avr",
     "hexagon",
     "le32",
+    "loongarch64",
     "mips",
     "mips64",
     "msp430",
