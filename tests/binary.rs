@@ -1,6 +1,6 @@
 extern crate executable_path;
-use executable_path::executable_path;
-use std::process::Command;
+
+use {executable_path::executable_path, std::process::Command};
 
 #[cfg(all(target_arch = "x86_64", target_os = "linux", target_env = "gnu"))]
 static EXPECTED: &str = r#"arch: x86_64
@@ -33,6 +33,17 @@ endian: little
 pointer_width: 64
 vendor: apple
 feature: ["fxsr", "sse", "sse2", "sse3", "ssse3"]
+"#;
+
+#[cfg(all(target_arch = "aarch64", target_os = "macos", target_env = ""))]
+static EXPECTED: &str = r#"arch: aarch64
+os: macos
+family: unix
+env: 
+endian: little
+pointer_width: 64
+vendor: apple
+feature: []
 "#;
 
 #[test]
