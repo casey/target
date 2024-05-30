@@ -1,6 +1,6 @@
 [package]
 name        = "target"
-version     = "2.0.1"
+version     = "2.1.1"
 description = "Get information on compilation target"
 authors     = ["Casey Rodarmor <casey@rodarmor.com>"]
 license     = "CC0-1.0"
