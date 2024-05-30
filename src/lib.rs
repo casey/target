@@ -152,6 +152,7 @@ pub fn os() -> &'static str {
     "fuchsia",
     "haiku",
     "hermit",
+    "hurd",
     "illumos",
     "ios",
     "l4re",
