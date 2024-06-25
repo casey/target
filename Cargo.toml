@@ -1,10 +1,10 @@
 [package]
-name        = "target"
-version     = "2.1.0"
+name = "target"
+version = "2.1.0"
 description = "Get information on compilation target"
-authors     = ["Casey Rodarmor <casey@rodarmor.com>"]
-license     = "CC0-1.0"
-repository    = "https://github.com/casey/target"
+authors = ["Casey Rodarmor <casey@rodarmor.com>"]
+license = "CC0-1.0"
+repository = "https://github.com/casey/target"
 
 [dev-dependencies]
 executable-path = "1.0.0"
