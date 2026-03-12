@@ -28,6 +28,9 @@ jobs:
 
       - uses: Swatinem/rust-cache@v2
 
+      - name: Install clippy and rustfmt
+        run: rustup component add clippy rustfmt
+
       - name: Check
         run: cargo check
 
