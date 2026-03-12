@@ -5,7 +5,7 @@ on:
     branches:
       - master
     tags:
-      - "*"
+      - '*'
   pull_request:
     branches:
       - master
@@ -15,7 +15,7 @@ defaults:
     shell: bash
 
 env:
-  CACHE_KEY: 1
+  RUSTFLAGS: '--deny warnings'
 
 jobs:
   all:
@@ -23,31 +23,10 @@ jobs:
 
     runs-on: ubuntu-latest
 
-    env:
-      RUSTFLAGS: "--deny warnings"
-
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
 
-      - uses: actions/cache@v2
-        with:
-          path: |
-            ~/.cargo/bin/
-            ~/.cargo/registry/index/
-            ~/.cargo/registry/cache/
-            ~/.cargo/git/db/
-            target/
-          key: cargo-${{ env.CACHE_KEY }}-${{ hashFiles('**/Cargo.lock') }}
-
-      - name: Install clippy and rustfmt
-        run: rustup component add clippy rustfmt
-
-      - name: Info
-        run: |
-          rustup --version
-          cargo --version
-          cargo clippy --version
-          cargo fmt --version
+      - uses: Swatinem/rust-cache@v2
 
       - name: Check
         run: cargo check
