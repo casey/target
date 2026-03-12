@@ -146,6 +146,7 @@ pub fn os() -> &'static str {
     "bitrig",
     "cloudabi",
     "cuda",
+    "cygwin",
     "dragonfly",
     "emscripten",
     "freebsd",
