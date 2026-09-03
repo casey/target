@@ -27,6 +27,7 @@ pub fn arch() -> &'static str {
     "arm",
     "asmjs",
     "avr",
+    "e2k",
     "hexagon",
     "le32",
     "loongarch64",
