@@ -48,6 +48,7 @@ pub fn arch() -> &'static str {
     "x86",
     "x86_64",
     "xcore",
+    "e2k:",
   }
 }
 
